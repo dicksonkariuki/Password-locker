@@ -17,3 +17,13 @@ class Credentials:
         A method to create new accounts and saving them in the user's list.
         """
         Credentials.users_list.append(self)
+
+    @classmethod
+    def authenticate_account(cls, name, key):
+        """
+        method to confirm whether username and password is correct
+        """
+        for user in cls.users_list:
+            if user.username == name and user.password == key:
+                return user
+        return 0
