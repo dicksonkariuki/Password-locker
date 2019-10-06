@@ -27,3 +27,9 @@ class Credentials:
             if user.username == name and user.password == key:
                 return user
         return 0
+
+    class UserInfo:
+        """
+        class that contains user's password and account information
+        """
+    data_list = []
