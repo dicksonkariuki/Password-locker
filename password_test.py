@@ -1,4 +1,4 @@
-from password import Credentials, UsersData
+from password import Credentials, UsersInfo
 import unittest
 import pyperclip
 
@@ -56,39 +56,39 @@ class TestUserData(unittest.TestCase):
         '''
         Setting up the structure before each test
         '''
-        self.new_data = UsersData(1, 1, "gmail.com", "kiriu")
+        self.new_data = UsersInfo(1, 1, "gmail.com", "kiriu")
 
     def tearDown(self):
         '''
         Cleans up the test after test is complete
         '''
-        UsersData.data_list = []
+        UsersInfo.data_list = []
 
     def test_init(self):
         '''
         Test case to evaluate if the case has been initialized properly
         '''
         self.assertEqual(self.new_data.ident, 1)
-        self.assertEqual(self.new_data.data_id, 1)
+        self.assertEqual(self.new_data.id, 1)
         self.assertEqual(self.new_data.website, "gmail.com")
-        self.assertEqual(self.new_data.web_key, "kiriu")
+        self.assertEqual(self.new_data.web_pass, "kiriu")
 
     def test_add_password(self):
         '''
         Testing if the new website and password can be saved
         '''
         self.new_data.add_password()
-        self.assertEqual(len(UsersData.data_list), 1)
+        self.assertEqual(len(UsersInfo.data_list), 1)
 
     def test_display_data(self):
         '''
         Testing if the data can be displayed.
         '''
         self.new_data.add_password()
-        test_data = UsersData(1, 1, "gmail.com", "kiriu")
+        test_data = UsersInfo(1, 1, "gmail.com", "kiriu")
         test_data.add_password()
 
-        data_found = UsersData.display_data(1, 1)
+        data_found = UsersInfo.display_data(1, 1)
         self.assertEqual(data_found.website, test_data.website)
 
     def test_data_exists(self):
@@ -96,10 +96,10 @@ class TestUserData(unittest.TestCase):
         Testing to check if the function for checking data works well
         '''
         self.new_data.add_password()
-        test_data = UsersData(1, 1, "gmail.com", "kiriu")
+        test_data = UsersInfo(1, 1, "gmail.com", "kiriu")
         test_data.add_password()
 
-        data_exists = UsersData.existing_data(1)
+        data_exists = UsersInfo.existing_data(1)
         self.assertTrue(data_exists)
 
     def test_copy_password(self):
@@ -107,9 +107,9 @@ class TestUserData(unittest.TestCase):
         Testing if the copy password function works
         '''
         self.new_data.add_password()
-        UsersData.copy_password(1, 1)
+        UsersInfo.copy_password(1, 1)
 
-        self.assertEqual(self.new_data.web_key, pyperclip.paste())
+        self.assertEqual(self.new_data.web_pass, pyperclip.paste())
 
 
 if __name__ == "__main__":

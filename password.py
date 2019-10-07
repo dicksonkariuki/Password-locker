@@ -28,7 +28,7 @@ class Credentials:
         '''
         for user in cls.users_list:
             if user.username == name and user.password == key:
-                # print(user.identify)
+
                 return user
         return 0
 
@@ -39,11 +39,11 @@ class UsersInfo:
     '''
     data_list = []
 
-    def __init__(self, ident, data_id, website, web_key):
+    def __init__(self, ident, id, website, web_pass):
         self.ident = ident
-        self.data_id = data_id
+        self.id = id
         self.website = website
-        self.web_key = web_key
+        self.web_pass = web_pass
 
     def add_password(self):
         '''
@@ -58,7 +58,7 @@ class UsersInfo:
         '''
         for password in cls.data_list:
             if password.ident == number:
-                if password.data_id == count:
+                if password.id == count:
                     return password
 
     @classmethod
@@ -74,4 +74,4 @@ class UsersInfo:
     @classmethod
     def copy_password(cls, number, count):
         found_password = UsersInfo.display_data(number, count)
-        pyperclip.copy(found_password.web_key)
+        pyperclip.copy(found_password.web_pass)

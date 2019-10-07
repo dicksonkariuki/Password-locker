@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 import string
 import random
 import time
@@ -5,9 +6,9 @@ from password import Credentials, UsersInfo
 
 
 def new_account(id, username, password):
-    """
-    Function for creating new account
-    """
+    '''
+    Function to creating new account
+    '''
     new_user = Credentials(id, username, password)
     return new_user
 
@@ -26,11 +27,11 @@ def authenticate(username, passkey):
     return Credentials.authenticate_account(username, passkey)
 
 
-def my_new_data(user_id, Info_id, website, web_key):
+def my_new_data(user_id, data_id, website, web_pass):
     '''
     Function that creates new data for storing password
     '''
-    new_data = UsersInfo(website, web_key)
+    new_data = UsersInfo(user_id, data_id, website, web_pass)
     return new_data
 
 
@@ -45,14 +46,14 @@ def display_data(data, number):
     '''
     Function that displays the user data
     '''
-    return UsersInfo.display_Info(data, number)
+    return UsersInfo.display_data(data, number)
 
 
 def data_existing(data):
     '''
     Function that checks if user data exists
     '''
-    return UsersInfo.existing_info(data)
+    return UsersInfo.existing_data(data)
 
 
 def password_generator(count):
@@ -130,7 +131,8 @@ def main():
                         print("How long do you want the password to be?")
                         password_length = int(input("Length of password: "))
                         my_webkey = password_generator(password_length)
-                        my_ident = get_result.authenticate
+                        # my_data_id = my_data_id+1
+                        my_ident = get_result.recognise
                         add_data(my_new_data(
                             my_ident, entries[my_ident], my_website, my_webkey))
                         entries[my_ident] = entries[my_ident]+1
@@ -143,16 +145,16 @@ def main():
                         print("-"*45)
 
                     elif get_input == "vp":
-                        if data_existing(get_result.authenticate):
-                            length = entries[get_result.authenticate]
+                        if data_existing(get_result.recognise):
+                            length = entries[get_result.recognise]
                             print(f"You have {length} passwords:")
                             print("\n")
                             data_my = 0
                             while data_my < length:
                                 get_password = display_data(
-                                    get_result.authenticate, data_my)
+                                    get_result.recognise, data_my)
                                 print(
-                                    f"{data_my+1}. {get_password.website} ---- {get_password.web_key}")
+                                    f"{data_my+1}. {get_password.website} ---- {get_password.web_pass}")
                                 data_my += 1
                             print("\nEnter a command to continue")
                             print("-"*20)
@@ -162,19 +164,18 @@ def main():
                             print("-"*20)
 
                     elif get_input == "cp":
-                        if data_existing(get_result.authenticate):
+                        if data_existing(get_result.recognise):
                             print("Enter the index of password you want to copy:")
                             get_index = int(input("Enter index: "))-1
-                            if get_index >= entries[get_result.authenticate] or get_index < 0:
+                            if get_index >= entries[get_result.recognise] or get_index < 0:
                                 print("\n")
                                 print(
                                     f"{get_index+1} is invalid. Enter the correct index of password to copy")
                                 print(
                                     "Type vp to confirm the correct index of password to copy")
                                 print("-"*30)
-                            elif get_index < entries[get_result.authenticate]:
-                                copy_password(
-                                    get_result.authenticate, get_index)
+                            elif get_index < entries[get_result.recognise]:
+                                copy_password(get_result.recognise, get_index)
                                 print("\n")
                                 print(
                                     f"Password {get_index+1} on the list has been copied, and is ready for pasting")
