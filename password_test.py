@@ -12,3 +12,9 @@ class TestCredentials(unittest.TestCase):
         """
         Set up method to run before each test case
         """
+        self.new_user = Credentials(1, "dickson", "kiriu")
+
+    def tearDown(self):
+        """
+        Teardown method that clean up after running each testcase
+        """
