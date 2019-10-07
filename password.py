@@ -1,3 +1,6 @@
+import pyperclip
+
+
 class Credentials:
     """
     class that creates a user's account and authentication information.
@@ -28,13 +31,14 @@ class Credentials:
                 return user
         return 0
 
-    class UsersInfo:
-        """
-        class that contains user's password and account information
-        """
+
+class UsersInfo:
+    """
+    class that contains user's password and account information
+     """
     data_list = []
 
-    def __init__(self, ident, info_id, website, web_key):
+    def _init__(self, ident, info_id, website, web_key):
         self.ident = ident
         self.info_id = info_id
         self.website = website
@@ -53,8 +57,8 @@ class Credentials:
         """
         for password in cls.data_list:
             if password.ident == number:
-                if password.info_id == count
-                return password
+                if password.info_id == count:
+                    return password
 
     @classmethod
     def existing_info(cls, number):
@@ -62,6 +66,11 @@ class Credentials:
         Checks if info is present in the profile.
         """
         for info in cls.data_list:
-            if info.ident == number
-            return True
-        return false
+            if info.ident == number:
+                return True
+        return False
+
+    @classmethod
+    def copy_password(cls, number, count):
+        found_password = UsersInfo.display_Info(number, count)
+        pyperclip.copy(found_password.web_key)
