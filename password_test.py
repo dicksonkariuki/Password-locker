@@ -18,3 +18,10 @@ class TestCredentials(unittest.TestCase):
         """
         Teardown method that clean up after running each testcase
         """
+        Credentials.users_list = []
+
+    def test_init(self):
+        """
+        test_init test case to test if the objects are initialized correctly
+        """
+        self.assertEqual()
