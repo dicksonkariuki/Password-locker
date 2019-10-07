@@ -25,8 +25,8 @@ The user will be met with the following commands while signing in:
 
 | Behavior                   | Input                                                      | Output                                                                                       |
 | -------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Create new account         | Type: cc <br>Username: dickson <br>Password: kariuki       | User Richi has been created.<br>Log in to Continue                                           |
-| Sign in                    | Type: ss <br>Username: dickson<br>Password: kariuki        | Welcome Richi! What would you like to do?                                                    |
+| Create new account         | Type: cc <br>Username: dickson <br>Password: kariuki       | User dickson has been created.<br>Log in to Continue                                         |
+| Sign in                    | Type: ss <br>Username: dickson<br>Password: kariuki        | Welcome dickson! What would you like to do?                                                  |
 | Add Password               | Type: ad <br>Website: gmail.com <br>Length of password: 15 | **Generates a password with x length**<br>Your password for mywebsite.com is wAd8eFh49eds34r |
 | View list of passwords     | Type: vp                                                   | Generates a lists of websites and passwords                                                  |
 | Copy Password to clipboard | Type: cp <br>Enter index: 1                                | Password 1 on the list has been copied and is ready for pasting                              |
