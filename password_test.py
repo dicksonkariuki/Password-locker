@@ -62,6 +62,54 @@ class UsersInfo(unittest.TestCase):
         """
         cleans up the test after the test is complete
         """
+        UsersInfo.data_list = []
+
+    def test_init(self):
+        """
+        Test to check if the objects have been initialized appropriately
+        """
+        self.assertEqual(self.new_data.ident, 1)
+        self.assertEqual(self.new_data.data_id, 1)
+        self.assertEqual(self.new_data.website, "gmail.com")
+        self.assertEqual(self.new_data.web_key, "kiriu")
+
+    def test_add_password(self):
+        '''
+        Testing if the new website and password can be saved
+        '''
+        self.new_data.add_password()
+        self.assertEqual(len(UsersInfo.data_list), 1)
+
+    def test_display_data(self):
+        '''
+        Testing if the data can be displayed.
+        '''
+        self.new_data.add_password()
+        test_data = UsersInfo(1, 1, "gmail.com", "kiriu")
+        test_data.add_password()
+
+        data_found = UsersInfo.display_data(1, 1)
+        self.assertEqual(data_found.website, test_data.website)
+
+    def test_data_exists(self):
+        '''
+        Testing to check if the function for checking data works well
+        '''
+        self.new_data.add_password()
+        test_data = UsersInfo(1, 1, "gmail.com", "kiriu")
+        test_data.add_password()
+
+        data_exists = UsersInfo.existing_data(1)
+        self.assertTrue(data_exists)
+
+    def test_copy_password(self):
+        '''
+        Testing if the copy password function works
+        '''
+        self.new_data.add_password()
+        UsersInfo.copy_password(1, 1)
+
+        self.assertEqual(self.new_data.web_key, pyperclip.paste())
 
 
 if __name__ == "__main__":
