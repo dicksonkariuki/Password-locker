@@ -55,3 +55,13 @@ class Credentials:
             if password.ident == number:
                 if password.info_id == count
                 return password
+
+    @classmethod
+    def existing_info(cls, number):
+        """
+        Checks if info is present in the profile.
+        """
+        for info in cls.data_list:
+            if info.ident == number
+            return True
+        return false
