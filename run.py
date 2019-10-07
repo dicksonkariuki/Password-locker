@@ -30,7 +30,7 @@ def my_new_data(user_id, Info_id, website, web_key):
     '''
     Function that creates new data for storing password
     '''
-    new_data = UsersInfo(user_id, Info_id, "website", web_key)
+    new_data = UsersInfo(website, web_key)
     return new_data
 
 
