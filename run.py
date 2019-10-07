@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+
 import string
 import random
 import time
@@ -82,9 +82,8 @@ def main():
     Main function
     '''
     my_id = 0
-    # my_data_id = 0
     entries = []
-    # print(password_generator(10))
+
     print("\n")
     print("       Welcome to password Locker")
     print("-"*40)
@@ -116,7 +115,7 @@ def main():
                 print("Invalid username and/or password")
                 print("-"*27)
             elif get_result != 0:
-                # print(f"{get_result.identify} has logged in")
+
                 print("\n")
                 print(
                     f"Welcome {get_result.username}! What would you like to do?")
@@ -131,7 +130,7 @@ def main():
                         print("How long do you want the password to be?")
                         password_length = int(input("Length of password: "))
                         my_webkey = password_generator(password_length)
-                        # my_data_id = my_data_id+1
+
                         my_ident = get_result.recognise
                         add_data(my_new_data(
                             my_ident, entries[my_ident], my_website, my_webkey))
@@ -141,7 +140,7 @@ def main():
                         print("\n")
                         print(
                             f"***Your password for {my_website} is {my_webkey}***")
-                        # print(f"This is the {entries[my_ident]} entry")MKBViStksX 0h5SzxJxQe fOTSiyEZuQ
+
                         print("-"*45)
 
                     elif get_input == "vp":
@@ -187,7 +186,8 @@ def main():
 
                     elif get_input == "lo":
                         print("\n")
-                        print(f"Goodbye {get_result.username}!")
+                        print(
+                            f"Thanks for creating an account with us {get_result.username}!")
                         print("-"*30)
                         break
 
@@ -197,7 +197,7 @@ def main():
 
         elif welcome_text == "ex":
             print("\n")
-            print(f"Goodbye!!")
+            print(f"Thanks for creating an account with us")
             print("-"*30)
             break
 
