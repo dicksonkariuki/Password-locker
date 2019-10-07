@@ -47,5 +47,11 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(found_user.authenticate, test_account.authenticate)
 
 
+class UsersInfo(unittest.TestCase):
+    """
+    Test class that defines test cases for UsersInfo class
+    """
+
+
 if __name__ == "__main__":
     unittest.main()
