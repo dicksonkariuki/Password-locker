@@ -24,4 +24,6 @@ class TestCredentials(unittest.TestCase):
         """
         test_init test case to test if the objects are initialized correctly
         """
-        self.assertEqual()
+        self.assertEqual(self.new_user.authenticate, 1)
+        self.assertEqual(self.new_user.username, "dickson")
+        self.assertEqual(self.new_user.password, "kiriu")
