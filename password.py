@@ -7,12 +7,12 @@ class Credentials:
     '''
     users_list = []
 
-    def __init__(self, identify, user_name, password):
+    def __init__(self, recognise, username, password):
         '''
         Initalizing the variables
         '''
-        self.identify = identify
-        self.user_name = user_name
+        self.recognise = recognise
+        self.username = username
         self.password = password
 
     def create_account(self):
@@ -27,13 +27,13 @@ class Credentials:
         Method that checks if the username and password are correct
         '''
         for user in cls.users_list:
-            if user.user_name == name and user.password == key:
+            if user.username == name and user.password == key:
                 # print(user.identify)
                 return user
         return 0
 
 
-class UsersData:
+class UsersInfo:
     '''
     Class that holds website and password data for the users
     '''
@@ -49,7 +49,7 @@ class UsersData:
         '''
         creating a method that creates the username and password
         '''
-        UsersData.data_list.append(self)
+        UsersInfo.data_list.append(self)
 
     @classmethod
     def display_data(cls, number, count):
@@ -73,5 +73,5 @@ class UsersData:
 
     @classmethod
     def copy_password(cls, number, count):
-        found_password = UsersData.display_data(number, count)
+        found_password = UsersInfo.display_data(number, count)
         pyperclip.copy(found_password.web_key)
