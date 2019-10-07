@@ -7,3 +7,8 @@ class TestCredentials(unittest.TestCase):
     """
         Test class that defines the test cases for Credentials class.
     """
+
+    def setUp(self):
+        """
+        Set up method to run before each test case
+        """
