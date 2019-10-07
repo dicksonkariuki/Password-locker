@@ -52,6 +52,17 @@ class UsersInfo(unittest.TestCase):
     Test class that defines test cases for UsersInfo class
     """
 
+    def setUp(self):
+        """
+        Setting up the structure before each test
+        """
+        self.new_data = UsersInfo(1, 1, "gmail.com", "kiriu")
+
+    def tearDown(self):
+        """
+        cleans up the test after the test is complete
+        """
+
 
 if __name__ == "__main__":
     unittest.main()
