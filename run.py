@@ -130,8 +130,7 @@ def main():
                         print("How long do you want the password to be?")
                         password_length = int(input("Length of password: "))
                         my_webkey = password_generator(password_length)
-                        # my_data_id = my_data_id+1
-                        my_ident = get_result.identify
+                        my_ident = get_result.authenticate
                         add_data(my_new_data(
                             my_ident, entries[my_ident], my_website, my_webkey))
                         entries[my_ident] = entries[my_ident]+1
