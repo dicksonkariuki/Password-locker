@@ -35,7 +35,7 @@ class Credentials:
 
 class UsersInfo:
     '''
-    Class that holds website and password data for the users
+    Class that holds website and password info for the users
     '''
     data_list = []
 
@@ -64,7 +64,7 @@ class UsersInfo:
     @classmethod
     def existing_data(cls, number):
         '''
-        Checks if data exists in the profile
+        Checks if info exists in the profile
         '''
         for data in cls.data_list:
             if data.ident == number:
